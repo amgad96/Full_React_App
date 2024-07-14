@@ -1,8 +1,11 @@
 pipeline {
     agent any
 //This command to check  
+    environment {
+        DOCKER_CREDENTIALS_ID = credentials('Amgad-Docker-Cred')
+    }
     stages {           
-      stage('Build') {
+      stage('Build Frontend') {
             steps {
                     script {
                         sh 'npm install'
@@ -11,7 +14,7 @@ pipeline {
                         }
                     }
 
-        stage('Test') {
+        stage('Test Frontend') {
             steps {
                     script {
                         sh 'npm install'
@@ -20,19 +23,20 @@ pipeline {
                 }
             }
                
-/*
-        stage('Build Docker Images') {
+
+        stage('Build frontend docker Image') {
                     steps {
                         script {
-                            docker.withRegistry('', 'docker-creds') {
-                                sh 'docker build -t docker push amgadashraf/ffrontend:v5 frontend'
-                                sh 'docker push amgadashraf/ffrontend:v5'
+                            sh """
+                                echo ${DOCKER_CREDENTIALS_ID_PSW} | docker login -u ${DOCKER_CREDENTIALS_ID_USR} --password-stdin
+                                docker build -t amgadashraf/ffrontend:v5 .
+                                docker push amgadashraf/ffrontend:v5
+                                docker logout
+                                """
                             }
                         }
                     }
-        }
-    
-*/
+
         stage('Deploy') {
             steps {
                 // Add your deployment steps here
