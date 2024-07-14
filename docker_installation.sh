@@ -13,10 +13,16 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
+
 # To install the latest version, run:
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 # add jenkins user to docker group
 sudo usermod -aG docker jenkins
+
 #Log out and log back in so that your group membership is re-evaluated. Alternatively, you can run:
 newgrp docker
+
+#restart jenkins service
+sudo systemctl restart jenkins
 
