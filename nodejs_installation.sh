@@ -1,7 +1,7 @@
 #!/bin/bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
-nvm install v20.15.1
+#This script to install nodejs and npm direclty on the jenkins server
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+sudo apt-get install -y nodejs
 node -v
 npm -v
-nvm use v20.15.1
+
