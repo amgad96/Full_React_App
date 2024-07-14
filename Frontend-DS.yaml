@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: amgadashraf/ffrontend:v4
+        image: amgadashraf/ffrontend:latest
         ports:
         - containerPort: 3000
 ---
