@@ -2,7 +2,7 @@ pipeline {
     agent any
 //This command to check  
     environment {
-        DOCKER_CREDENTIALS_ID = credentials('Amgad-Docker-Cred')
+        DOCKER_CREDENTIALS_ID = 'Amgad-Docker-Cred'
     }
     stages {           
       stage('Build Frontend') {
@@ -25,19 +25,24 @@ pipeline {
                
 
         stage('Build frontend docker Image') {
-            steps {
-                    withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        script {
-                            sh """
-                            echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-                            docker build -t amgadashraf/ffrontend:v6 .
-                            docker push amgadashraf/ffrontend:v6
-                            docker logout
-                                """
-                                }     
-                        }
+                    steps {
+                            withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                                script {
+                                    def imageTag = params.DOCKER_IMAGE_TAG
+                                    // Login to Docker Hub
+                                    sh """
+                                    echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
+                                    """
+                                    // Build Docker Image
+                                    sh "docker build -t amgadashraf/ffrontend:v6 ."
+                                    // Push Docker Image
+                                    sh "docker push amgadashraf/ffrontend:v6 ."
+                                    // Logout from Docker Hub
+                                    sh 'docker logout'
+                    }
                 }
-        }
+                        }
+                    }
 
         stage('Deploy') {
             steps {
