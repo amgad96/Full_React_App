@@ -28,10 +28,11 @@ pipeline {
             steps {
                     withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         script {
+                            def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
                             sh """
                             echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-                            docker build -t amgadashraf/ffrontend:v7 .
-                            docker push amgadashraf/ffrontend:v7 
+                            docker build -t amgadashraf/ffrontend:"v${version}" .
+                            docker push amgadashraf/ffrontend:"v${version}" 
                             docker logout
                                 """
                                 }
