@@ -26,13 +26,15 @@ pipeline {
 
         stage('Build frontend docker Image') {
                     steps {
-                        script {
-                            sh """
-                                echo ${DOCKER_CREDENTIALS_ID_PSW} | docker login -u ${DOCKER_CREDENTIALS_ID_USR} --password-stdin
-                                docker build -t amgadashraf/ffrontend:v5 .
-                                docker push amgadashraf/ffrontend:v5
+                            script {
+                                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                                sh """
+                                echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
+                                docker build -t amgadashraf/ffrontend:v6 frontend
+                                docker push amgadashraf/ffrontend:v6
                                 docker logout
                                 """
+                                }
                             }
                         }
                     }
