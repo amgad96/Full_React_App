@@ -36,18 +36,18 @@ pipeline {
             }
 
         stage('Build backend docker Image') {
-                    steps {
-                            script {
-                                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                                sh """
-                                echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
-                                docker build -t amgadashraf/fbackend:v7 .
-                                docker push amgadashraf/fbackend:v7
-                                docker logout
-                                """
-                                }
+            steps {
+                withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                script {
+                    sh """
+                    echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
+                    docker build -t amgadashraf/fbackend:v7 .
+                    docker push amgadashraf/fbackend:v7 
+                    docker logout
+                        """
                         }
-                    }
+                }
+            }
         }
         stage('Deploy') {
             steps {
