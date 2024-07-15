@@ -41,8 +41,8 @@ pipeline {
                                 withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                                 sh """
                                 echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
-                                docker build -t amgadashraf/fbackend:v6 .
-                                docker push amgadashraf/fbackend:v6
+                                docker build -t amgadashraf/fbackend:v7 .
+                                docker push amgadashraf/fbackend:v7
                                 docker logout
                                 """
                                 }
