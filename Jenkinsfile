@@ -30,8 +30,8 @@ pipeline {
                         script {
                             sh """
                             echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-                            docker build -t amgadashraf/ffrontend:v6 .
-                            docker push amgadashraf/ffrontend:v6 
+                            docker build -t amgadashraf/ffrontend:v7 .
+                            docker push amgadashraf/ffrontend:v7 
                             docker logout
                                 """
                                 }
