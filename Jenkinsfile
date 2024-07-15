@@ -45,7 +45,7 @@ pipeline {
                     sh """
                     echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
                     docker build -t amgadashraf/fbackend:"v${version}" .
-                    docker push amgadashraf/fbackend:${version} 
+                    docker push amgadashraf/fbackend:"v${version}" 
                     docker logout
                         """
                         }
