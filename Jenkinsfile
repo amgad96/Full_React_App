@@ -38,9 +38,10 @@ pipeline {
         stage('Build backend docker Image') {
             steps {
                 // Extract version from package.json
-                def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
+                
                 withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                 script {
+                    def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
                     sh """
                     echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
                     docker build -t amgadashraf/fbackend:${version} .
