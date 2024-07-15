@@ -44,7 +44,7 @@ pipeline {
                     def version = sh(script: "jq -r .version package.json", returnStdout: true).trim()
                     sh """
                     echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-                    docker build -t amgadashraf/fbackend:${version} .
+                    docker build -t amgadashraf/fbackend:"v${version}" .
                     docker push amgadashraf/fbackend:${version} 
                     docker logout
                         """
