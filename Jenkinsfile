@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = credentials('Amgad-Docker-Cred')
+        DOCKER_CREDENTIALS_ID = 'Amgad-Docker-Cred'
     } 
 
     stages {
