@@ -55,13 +55,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script {
                     // Add your deployment steps here
                     deployApp()
                     echo ' Backend Deployed '
-                    }
-
-
             }
         }
     }
