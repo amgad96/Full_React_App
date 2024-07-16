@@ -1,3 +1,4 @@
+@Library('Kube_cluster') _ // Load the shared library
 pipeline {
     agent any
 
@@ -54,8 +55,13 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                // Add your deployment steps here
-                echo 'Deploying Frontend and Backend...'
+                script {
+                    // Add your deployment steps here
+                    deployApp()
+                    echo ' Backend Deployed '
+                    }
+
+
             }
         }
     }
