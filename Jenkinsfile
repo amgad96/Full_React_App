@@ -1,3 +1,4 @@
+@Library('Kube_cluster') _ // Load the shared library
 pipeline {
     agent any
 //This command to check  
@@ -43,7 +44,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Add your deployment steps here
-                echo 'Deploying Frontend and Backend...'
+                deployApp()
+                echo 'Frontend Deployed'
             }
         }
     }
