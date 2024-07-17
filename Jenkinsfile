@@ -1,11 +1,12 @@
-@Library('Kube_cluster') _ // Load the shared library
+//@Library('Kube_cluster') _ // Load the shared library
 pipeline {
     agent any 
     stages {
         stage('Apply cluster yaml files') {
             steps {
                 script {
-                    deployApp()
+                    //deployApp()
+                    echo "help"
                     }
                 }
             }
