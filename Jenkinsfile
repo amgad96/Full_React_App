@@ -5,7 +5,8 @@ pipeline {
         stage('Apply cluster yaml files') {
             steps {
                 script {
-                    deployApp()
+                    //deployApp()
+                    echo "help"
                     }
                 }
             }
@@ -13,9 +14,9 @@ pipeline {
     }
 
     post {
-       /* always {
+        always {
             cleanWs() // Clean the workspace after the build
-        }*/
+        }
         success {
             echo 'Pipeline succeeded!'
         }
