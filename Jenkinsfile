@@ -17,7 +17,7 @@ pipeline {
             cleanWs() // Clean the workspace after the build
         }
         success {
-            echo 'Pipeline succeeded!'
+            echo 'Pipeline succeeded!!'
         }
         failure {
             echo 'Pipeline failed!'
