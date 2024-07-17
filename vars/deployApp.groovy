@@ -8,8 +8,8 @@ def call() {
                             sudo kubectl apply -f MongoDB-DS.yaml &&
                             sudo kubectl apply -f Backend-DS.yaml &&
                             sudo kubectl apply -f Frontend-DS.yaml &&
-                            cd ..
-                            rm -rf Full_React_App
+                            cd .. &&
+                            rm -rf Full_React_App 
                         """
                     }       
 }
