@@ -5,8 +5,7 @@ pipeline {
         stage('Apply cluster yaml files') {
             steps {
                 script {
-                    //deployApp()
-                    echo "help"
+                    deployApp()
                     }
                 }
             }
