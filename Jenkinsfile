@@ -12,15 +12,15 @@ pipeline {
         }
     }
 
-    /*post {
-        always {
+    post {
+       /* always {
             cleanWs() // Clean the workspace after the build
-        }
+        }*/
         success {
             echo 'Pipeline succeeded!'
         }
         failure {
             echo 'Pipeline failed!'
         }
-    }*/
+    }
 
