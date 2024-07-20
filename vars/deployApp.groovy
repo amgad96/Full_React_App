@@ -13,5 +13,5 @@ def call() {
         rm -rf Full_React_App
         EOF
         """
-                    }       
+        }          
 }
