@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf clusterDir
 git clone -b App_Kube_cluster https://github.com/amgad96/Full_React_App.git clusterDir
 cd Full_React_App
 sudo kubectl apply -f DB-PersistentVol.yaml
