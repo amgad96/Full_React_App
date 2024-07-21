@@ -1,0 +1,9 @@
+#!/bin/bash
+git clone -b App_Kube_cluster https://github.com/amgad96/Full_React_App.git clusterDir
+cd Full_React_App
+sudo kubectl apply -f DB-PersistentVol.yaml
+sudo kubectl apply -f MongoDB-DS.yaml
+sudo kubectl apply -f Backend-DS.yaml
+sudo kubectl apply -f Frontend-DS.yaml
+cd ..
+rm -rf clusterDir
