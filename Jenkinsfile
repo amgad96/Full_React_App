@@ -5,14 +5,14 @@ pipeline {
         stage('Apply cluster yaml files') {
             steps {
                 script {
-                    deployApp()
+                    echo "deployApp()"
                     }
                 }
             }
         }
     }
 
-    /*post {
+    post {
         always {
             cleanWs() // Clean the workspace after the build
         }
@@ -22,5 +22,5 @@ pipeline {
         failure {
             echo 'Pipeline failed!'
         }
-    }*/
+    }
 
