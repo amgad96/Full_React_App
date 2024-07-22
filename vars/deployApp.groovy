@@ -1,5 +1,5 @@
 def call() {
-        sh 'echo "test the shared libray with post"'
+        echo "test the shared libray with post"
         // Download the script file 
         /*sh 'wget -O ./run_yamls.sh https://raw.githubusercontent.com/amgad96/Full_React_App/main/run_yamls.sh'
 	sshagent(['Master_Node_SSH_Cred']) {
