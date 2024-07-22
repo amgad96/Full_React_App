@@ -1,27 +1,25 @@
-//@Library('Kube_cluster') _ // Load the shared library
+@Library('Kube_cluster') _ // Load the shared library
 pipeline {
     agent any 
     stages {
         stage('Apply cluster yaml files') {
             steps {
                 script {
-                    //echo "deployApp()"
+                    deployApp()
                     echo "test post"
                     }
                 }
             }
         }
-    }
-
-post {
+    post {
         always {
             cleanWs() // Clean the workspace after the build
         }
         success {
-            echo 'Pipeline succeeded!!'
+            echo 'Pipeline succeeded!'
         }
         failure {
             echo 'Pipeline failed!'
         }
+    }
 }
-
