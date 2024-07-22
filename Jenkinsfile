@@ -1,4 +1,4 @@
-@Library('Kube_cluster') _ // Load the shared library
+//@Library('Kube_cluster') _ // Load the shared library
 pipeline {
     agent any 
     stages {
