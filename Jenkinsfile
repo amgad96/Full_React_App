@@ -13,7 +13,7 @@ pipeline {
     }
 
     post {
-        always {
+        /*always {
             cleanWs() // Clean the workspace after the build
         }
         success {
@@ -21,6 +21,6 @@ pipeline {
         }
         failure {
             echo 'Pipeline failed!'
-        }
+        }*/
     }
 
