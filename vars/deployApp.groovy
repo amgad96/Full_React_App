@@ -1,4 +1,4 @@
-def call() {
+/*def call() {
         echo "test the shared libray with post"
         // Download the script file 
         sh 'wget -O ./run_yamls.sh https://raw.githubusercontent.com/amgad96/Full_React_App/main/run_yamls.sh'
@@ -8,12 +8,12 @@ def call() {
                 // Execute the script on the remote server
                 sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.229.120.213 "chmod +x /home/ubuntu/run_yamls.sh && /home/ubuntu/run_yamls.sh"'
         }        
-}
+}*/
 //Another way 
-/*def call() {
+def call() {
     sshagent(['Master_Node_SSH_Cred']) {
         sh """
-        ssh -o StrictHostKeyChecking=no ubuntu@54.226.138.43 <<EOF
+        ssh -o StrictHostKeyChecking=no ubuntu@34.229.120.213 <<EOF
         git clone -b App_Kube_cluster https://github.com/amgad96/Full_React_App.git cluster_dir
         cd cluster_dir
         sudo kubectl apply -f DB-PersistentVol.yaml
@@ -24,4 +24,4 @@ def call() {
 EOF
         """
     }
-}*/
+}
