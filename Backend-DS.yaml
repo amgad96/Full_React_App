@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: amgadashraf/fbackend:latest
+        image: amgadashraf/fbackend:v8.1.5
         ports:
         - containerPort: 80
 ---
