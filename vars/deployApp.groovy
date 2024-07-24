@@ -13,7 +13,7 @@
 def call() {
     sshagent(['Master_Node_SSH_Cred']) {
         sh """
-        ssh -o StrictHostKeyChecking=no ubuntu@34.229.120.213 <<EOF
+        ssh -o StrictHostKeyChecking=no ubuntu@54.196.138.125 <<EOF
         git clone -b App_Kube_cluster https://github.com/amgad96/Full_React_App.git cluster_dir
         cd cluster_dir
         sudo kubectl apply -f DB-PersistentVol.yaml
