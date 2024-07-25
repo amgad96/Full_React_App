@@ -20,7 +20,8 @@ def call() {
         sudo kubectl apply -f MongoDB-DS.yaml
         sudo kubectl apply -f Backend-DS.yaml
         sudo kubectl apply -f Frontend-DS.yaml
-        rm -rf cluster_dir/*
+        cd ..
+        rm -rf cluster_dir
 EOF
         """
     }
