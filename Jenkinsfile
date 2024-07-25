@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     deployApp()
-                    echo "test post"
+                    echo "Yaml files Applied"
                     }
                 }
             }
