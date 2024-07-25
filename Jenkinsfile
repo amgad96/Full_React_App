@@ -46,7 +46,7 @@ pipeline {
                     sh """
                     echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
                     docker build -t amgadashraf/fbackend:latest .
-                    docker push amgadashraf/fbackend:latest" 
+                    docker push amgadashraf/fbackend:latest 
                     docker logout
                         """
                     /* we could use use this command to use the same version of package.json
