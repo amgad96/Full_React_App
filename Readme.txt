@@ -1,14 +1,15 @@
 This project consists of a Node.js backend, a React frontend, and MongoDB.
-Project Setup Instructions
-Follow these steps to set up the environment for this project.
 
+Description: This project involves manually setting up a Kubernetes cluster by configuring master and worker nodes using kubeadm.
+
+Follow these steps to set up the environment for this project.
 On the main server:
 Step 1: Run Installation Scripts On the main server.
   Run the following scripts on your main server to install necessary tools:
-    jenkins_installation.sh: Sets up the server as a Jenkins server.
-    terraform_installation.sh: Prepares the environment to create the cluster nodes (master node and worker nodes) using Terraform (Infrastructure as Code).
-    nodejs_installation.sh: Installs Node.js for testing and building the application artifact
-    docker_installation.sh: Allows the Jenkins server to use Docker commands, such as building and pushing Docker images.
+    - jenkins_installation.sh: Sets up the server as a Jenkins server.
+    - terraform_installation.sh: Prepares the environment to create the cluster nodes (master node and worker nodes) using Terraform (Infrastructure as Code).
+    - nodejs_installation.sh: Installs Node.js for testing and building the application artifact
+    - docker_installation.sh: Allows the Jenkins server to use Docker commands, such as building and pushing Docker images.
 
 Step 2: Provide AWS Credentials
   Set the AWS credentials to enable Terraform to create the cluster Nodes:
@@ -43,11 +44,9 @@ On the Master Node
 
 Step 7: Run Installation Scripts On the Master Node.
   Run the following scripts on your master node to create the kubernetes cluster:
-
-    McontainerdDepKubeInitDockerAnsible.sh: Prepares the Kubernetes cluster and its network. Also installs Docker and Ansible on the master node.
+    - McontainerdDepKubeInitDockerAnsible.sh: Prepares the Kubernetes cluster and its network. Also installs Docker and Ansible on the master node.
 	Note: Calico is a networking add-on for the Kubernetes cluster. You can edit your cluster IP range by editing the CALICO_IPV4POOL_CIDR value in calico.yaml.
-
-    addansiblehosts.sh:  Generates an SSH key on the master node and copies this key to the worker nodes to run tasks on the worker nodes using Ansible playbooks.
+   - addansiblehosts.sh:  Generates an SSH key on the master node and copies this key to the worker nodes to run tasks on the worker nodes using Ansible playbooks.
  	Note: You need to edit the 'ips' variable to your worker nodes' IPs.
    
 Step 8: Move and run Ansible playbooks.
