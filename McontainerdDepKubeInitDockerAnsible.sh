@@ -1,5 +1,5 @@
 #!/bin/bash
-#This script is for the master node, although the first part is common between all nodes.
+#This script is for the master node.
 # We will install containerD,kubernetescluster, Docker,Ansible and all dependencies of them.
 # update APT Packages
 sudo apt-get update
