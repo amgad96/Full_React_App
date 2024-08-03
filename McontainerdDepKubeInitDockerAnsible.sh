@@ -100,6 +100,8 @@ echo "calico installed"
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 echo "Docker installed"
+########################################################################################################################
+
 #This script to install asnible
 # Update the OS 
 sudo apt update
@@ -112,5 +114,5 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
 
 #########################################################################################
-#install sshpass to add the pass word one time to all hosts
+#install sshpass to add the password one time to all hosts
 sudo apt-get install -y sshpass
