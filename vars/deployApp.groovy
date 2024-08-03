@@ -4,16 +4,16 @@
         sh 'wget -O ./run_yamls.sh https://raw.githubusercontent.com/amgad96/Full_React_App/main/run_yamls.sh'
 	sshagent(['Master_Node_SSH_Cred']) {
                 // Copy the script to the remote server
-                sh 'scp -o StrictHostKeyChecking=no ./run_yamls.sh ubuntu@34.229.120.213:/home/ubuntu/run_yamls.sh'
+                sh 'scp -o StrictHostKeyChecking=no ./run_yamls.sh ubuntu@<master_node_IP>:/home/ubuntu/run_yamls.sh'
                 // Execute the script on the remote server
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.229.120.213 "chmod +x /home/ubuntu/run_yamls.sh && /home/ubuntu/run_yamls.sh"'
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@<master_node_IP> "chmod +x /home/ubuntu/run_yamls.sh && /home/ubuntu/run_yamls.sh"'
         }        
 }*/
 //Another way 
 def call() {
     sshagent(['Master_Node_SSH_Cred']) {
         sh """
-        ssh -o StrictHostKeyChecking=no ubuntu@54.221.50.171 <<EOF
+        ssh -o StrictHostKeyChecking=no ubuntu@<master_node_IP> <<EOF
         rm -rf cluster_dir
         git clone -b App_Kube_cluster https://github.com/amgad96/Full_React_App.git cluster_dir
         cd cluster_dir
