@@ -40,16 +40,20 @@ Step 6: Configure GitHub Webhook:
 Add a webhook in your GitHub repository to connect to your Jenkins server.
 You will need to add the IP address of your Jenkins server in the webhook configuration. As in "webhook.png".
 
+Step 7: Configure Jenkins Shared library:
+  You will need to add the repo url and branch name in the jenkins shared library configuration. As in "Shared_library_config.jpg".
+
+
 On the Master Node
 
-Step 7: Run Installation Scripts On the Master Node.
+Step 8: Run Installation Scripts On the Master Node.
   Run the following scripts on your master node to create the kubernetes cluster:
     - McontainerdDepKubeInitDockerAnsible.sh: Prepares the Kubernetes cluster and its network. Also installs Docker and Ansible on the master node.
 	Note: Calico is a networking add-on for the Kubernetes cluster. You can edit your cluster IP range by editing the CALICO_IPV4POOL_CIDR value in calico.yaml.
    - addansiblehosts.sh:  Generates an SSH key on the master node and copies this key to the worker nodes to run tasks on the worker nodes using Ansible playbooks.
  	Note: You need to edit the 'ips' variable to your worker nodes' IPs.
    
-Step 8: Move and run Ansible playbooks.
+Step 9: Move and run Ansible playbooks.
 	1 - copy the content of the ansible_tasks directory to /etc/ansible/, using this command [ #sudo mv ansible_tasks/* /etc/ansible/ ].
 	2 - Edit the [kubehosts] group in /etc/ansible/hosts with your worker nodes' IPs.
 	3 - Run the clustertasks.yml playbook to install Kubernetes on the worker nodes:. using this command [#ansible-playbook /etc/ansible/playbooks/clustertasks.yml].
