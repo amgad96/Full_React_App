@@ -1,9 +1,7 @@
-This project consists of a Node.js backend, a React frontend, and MongoDB.
+This project consists of a Node.js backend, a React frontend, and MongoDB. It involves manually setting up a Kubernetes cluster by configuring master and worker nodes using kubeadm. The project diagram file is named "Full_React_APP.jpg".
 
-Description: This project involves manually setting up a Kubernetes cluster by configuring master and worker nodes using kubeadm.
-Project diagram file name is "Full_React_APP.jpg"
+Follow these steps to set up the environment for this project:
 
-Follow these steps to set up the environment for this project.
 On the main server:
 Step 1: Run Installation Scripts On the main server.
   Run the following scripts on your main server to install necessary tools:
